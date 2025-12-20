@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="application.properties" />
     <bean id="myBean" class="uz.pdp.MyBean" />
-    <bean id="myBean2" class="uz.pdp.MyBean2">
-<!--        <constructor-arg index="0" ref="myBean"/>-->
-        <constructor-arg name="myBean1" ref="myBean"/>
+    <bean id="myBean2" class="uz.pdp.MyBean2"
+          c:myBean1-ref="myBean"/>
+<!--    <bean id="person" class="uz.pdp.Person"-->
+<!--          init-method="init"-->
+<!--          destroy-method="destroy"-->
+<!--    >-->
+<!--        <constructor-arg name="fullName" value="Eshmat Toshmatov"/>-->
+<!--        <constructor-arg name="age" value="40"/>-->
+
+<!--        <property name="fullName" value="Ali Valiyev" />-->
+<!--        <property name="age" value="18" />-->
+<!--    </bean>-->
+
+    <bean id="person" class="uz.pdp.Person"
+          factory-method="getInstance"
+          init-method="init"
+          destroy-method="destroy"
+        p:fullName="Eshmatov Toshmat"
+        p:age="29"
+    >
+        <property name="nickNames">
+            <list>
+                <value>White Developer</value>
+                <value>Black Code</value>
+                <value>Hacker</value>
+            </list>
+        </property>
+        <property name="jobs">
+            <map>
+                <entry key="1" value="Junior Java Developer" />
+                <entry key="2" value="Strong Junior Java Developer" />
+                <entry key="3" value="Middle Java Developer" />
+            </map>
+        </property>
     </bean>
+
+    <bean id="baseDao" class="uz.pdp.BaseDAO"
+        c:_0="${database.url}"
+        c:_1="${database.db}"
+        c:_2="${database.user}"
+        c:_3="${database.password}"
+        c:_4="${database.driver}"
+    />
 </beans>
