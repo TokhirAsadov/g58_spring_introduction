@@ -8,7 +8,7 @@ import uz.pdp.MyBean2;
 @Configuration
 public class MyConfig {
 
-    @Bean
+    @Bean(name = "myBean", initMethod = "init", destroyMethod = "destroy")
     public MyBean myBean(){
         return new MyBean();
     }
