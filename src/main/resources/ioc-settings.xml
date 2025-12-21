@@ -10,6 +10,8 @@
     <bean id="myBean" class="uz.pdp.MyBean" />
     <bean id="myBean2" class="uz.pdp.MyBean2"
           c:myBean1-ref="myBean"/>
+    <bean id="userService" class="uz.pdp.UserService"/>
+    <bean id="roleService" class="uz.pdp.RoleService"/>
 <!--    <bean id="person" class="uz.pdp.Person"-->
 <!--          init-method="init"-->
 <!--          destroy-method="destroy"-->
