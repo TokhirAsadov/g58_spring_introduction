@@ -6,7 +6,9 @@ import uz.pdp.config.MyConfig;
 public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(MyConfig.class);
+                new AnnotationConfigApplicationContext();
+        context.register(MyConfig.class);
+        context.refresh();
 //        MyBean myBean = context.getBean(MyBean.class);
 //        myBean.hi();
         MyBean2 myBean2 = context.getBean(MyBean2.class);
