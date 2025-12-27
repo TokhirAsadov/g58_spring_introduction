@@ -12,3 +12,7 @@ public class MyConfig {
         return new MyBean();
     }
 }
+
+// @Bean vs @Component
+// @Bean - method level foydalaniladi
+// @Component - class level da foydalaniladi
