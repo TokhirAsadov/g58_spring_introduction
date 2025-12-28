@@ -2,19 +2,22 @@ package uz.pdp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@ResponseBody
 public class HomeController {
 
     @GetMapping("/home")
     public String home(){
-        return "<h1>Hello Pdp</h1>";
+        return "home";
     }
 
-    @GetMapping("/home/home")
-    public String homeHome(){
-        return "<h1>Hello Pdp { /home/home }</h1>";
+    @GetMapping("/homeModel")
+    public ModelAndView homeHome(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("home");
+        modelAndView.addObject("username","asadov");
+        return modelAndView;
     }
 
     @PostMapping("/home")
