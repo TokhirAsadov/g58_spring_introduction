@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:with="number=50">
+    <h1>50 > 5 = <span th:text="${number} > 5"></span></h1>
+    <h1>50 gt 5 = <span th:text="${number} gt 5"></span></h1>
+    <h1>50 >= 5 = <span th:text="${number} >= 5"></span></h1>
+    <h1>50 ge 5 = <span th:text="${number} ge 5"></span></h1>
+    <h1>50 < 5 = <span th:text="${number} < 5"></span></h1>
+    <h1>50 == 50 = <span th:text="${number} == 50"></span></h1>
+    <h1>50 eq 50 = <span th:text="${number} eq 50"></span></h1>
+    <h1>50 != 50 = <span th:text="${number} != 50"></span></h1>
+    <h1>50 ne 50 = <span th:text="${number} ne 50"></span></h1>
+
+</body>
+</html>

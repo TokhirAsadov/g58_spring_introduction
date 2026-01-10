@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:with="role='Admin'">
+    <p th:text="${'Pdp Academy'}"></p>
+    <p th:text="'Pdp '+'Academy '+${full_name}"></p>
+    <p th:text="|Pdp Academy ${full_name}|"></p>
+    <div>
+        <h2>Role: <span th:text="${role}"></span></h2>
+    </div>
+    <div>
+        <h4 th:text="${role}"></h4>
+    </div>
+</body>
+</html>

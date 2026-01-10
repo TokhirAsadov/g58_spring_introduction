@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Welcome, <span th:text="${full_name}"></span></h1>
+    <h1 th:text="#{welcome.user}"></h1>
+    <h1 th:utext="#{welcome.admin.html}"></h1>
+
+    <br>
+    <ul>
+        <li th:text="${user.firstName}"></li>
+        <li th:text="${user.lastName}"></li>
+        <li th:text="${user.age}"></li>
+    </ul>
+    <br>
+    <ul th:object="${user}">
+        <li th:text="*{id}"></li>
+        <li th:text="*{firstName}"></li>
+        <li th:text="*{lastName}"></li>
+        <li th:text="*{age}"></li>
+    </ul>
+    <br>
+    <a th:href="@{/text/{id}/{userId}/page(id=100, userId=${user.id})}">Go to text page</a>
+    <br>
+    <a th:href="'/text/'+100+'/'+${user.id}+'/page'">Go to text page</a>
+</body>
+</html>
