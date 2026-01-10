@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(~{::title},~{::link})">
+    <title>Each Page</title>
+    <link rel="stylesheet" href="">
+</head>
+<body th:with="number=50">
+    <th:block th:each="color : ${colors}">
+        <li class="btn btn-" th:attrappend="class=${color}" th:text="${color}"></li>
+    </th:block>
+    <br>
+    <br>
+    <br>
+    <th:block th:each="color : ${colors}">
+        <li class=" btn" th:attrprepend="class='btn-'+${color}" th:text="${color}"></li>
+    </th:block>
+</body>
+</html>

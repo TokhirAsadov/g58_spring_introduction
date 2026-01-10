@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="fragments :: head(~{::title},~{::link})">
+    <title>Simple Expressions</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <h1>Welcome, <span th:text="${full_name}"></span></h1>

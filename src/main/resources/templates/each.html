@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(~{::title},~{::link})">
+    <title>Each Page</title>
+    <link rel="stylesheet" href="">
+</head>
+<body th:with="number=50">
+<div class="container">
+    <div>
+        <nav th:replace="fragments :: navbar"></nav>
+    </div>
+    <br>
+    <br>
+    <th:block th:each="color : ${colors}">
+        <li class="btn btn-" th:attrappend="class=${color}" th:text="${color}"></li>
+    </th:block>
+    <br>
+    <br>
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user,st : ${users}" th:object="${user}">
+<!--                <td th:text="${userStat.count}"></td>-->
+                <td th:text="${st.count}"></td>
+                <td th:text="*{firstName}"></td>
+                <td th:text="*{lastName}"></td>
+                <td th:text="*{age}"></td>
+                <td> <button th:onclick="editUser([[${st.count}]])" class="btn btn-info">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p th:text="'Hello ' + ${username}"></p>
+<p th:text="|Hello ${username}|"></p>
+<p>Hello, [[${username}]]</p>
+
+<script src="/js/main.js"></script>
+<script th:replace="fragments :: js"></script>
+</body>
+</html>

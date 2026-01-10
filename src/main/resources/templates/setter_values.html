@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(~{::title},~{::link})">
+    <title>Each Page</title>
+    <link rel="stylesheet" href="">
+</head>
+<body th:with="number=50">
+    <label>First Name: <input type="text" th:attr="value=${user.firstName}" value="firstName"></label>
+    <br>
+    <label>Last Name: <input type="text" th:attr="value=${user.lastName}" value="lastName"></label>
+    <br>
+    <label>Age: <input type="number" th:attr="value=${user.age}" value="age"></label>
+</body>
+</html>

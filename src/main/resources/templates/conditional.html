@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(~{::title},~{::link})">
+    <title>Conditional Page (if,unless,switch)</title>
+    <link rel="stylesheet" href="">
+</head>
+<body th:with="number=50">
+<div class="container">
+    <div>
+        <nav th:replace="fragments :: navbar"></nav>
+    </div>
+    <h4 th:if="${role}=='Admin'">Hello, ADMIN</h4>
+    <h4 th:if="${role}=='User'">Hello, USER</h4>
+    <h4 th:unless="${role}=='Admin'">Hello, Admin (unless)</h4>
+    <div th:switch="${role}">
+        <p th:case="Admin">Adminjon</p>
+        <p th:case="User">Userjon</p>
+        <p th:case="*">Anonim User</p>
+    </div>
+</div>
+<script th:replace="fragments :: js"></script>
+</body>
+</html>

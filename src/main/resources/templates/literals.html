@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="fragments :: head(~{::title},~{::link})">
+    <title>Each Page</title>
+    <link rel="stylesheet" href="">
 </head>
 <body th:with="role='Admin'">
     <p th:text="${'Pdp Academy'}"></p>
