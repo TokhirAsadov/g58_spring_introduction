@@ -16,7 +16,14 @@
         p:dataSource-ref="datasource"
     />
 
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate"
+        c:dataSource-ref="datasource"
+    />
+
     <bean id="userDao" class="uz.pdp.user.UserDAO"
         c:jdbcTemplate-ref="jdbcTemplate"
+    />
+    <bean id="userDao2" class="uz.pdp.user.UserDAO2"
+        c:namedParameterJdbcTemplate-ref="namedParameterJdbcTemplate"
     />
 </beans>
