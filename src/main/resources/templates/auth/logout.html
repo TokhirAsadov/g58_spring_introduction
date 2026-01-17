@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(~{::title},~{::link})">
+    <meta charset="UTF-8">
+    <title>Logout Page</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<!--<nav th:replace="fragments :: navbar"></nav>-->
+<div class="container padding-100">
+    <h1 class="center">Logout Page</h1>
+
+    <form class="center" method="post">
+        <h4>Are you sure log out?</h4>
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+    <a href="/homeModel">Go to Home.</a>
+</div>
+</body>
+</html>

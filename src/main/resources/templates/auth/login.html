@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(~{::title},~{::link})">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-
+<!--<nav th:replace="fragments :: navbar"></nav>-->
+<div class="container padding-100">
+    <h1 class="center">Login Page</h1>
+    <form class="center" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="uname" placeholder="Enter username">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="pswd" placeholder="Enter password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
 </body>
 </html>
