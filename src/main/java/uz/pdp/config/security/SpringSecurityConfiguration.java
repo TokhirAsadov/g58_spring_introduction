@@ -15,18 +15,21 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SpringSecurityConfiguration {
 
+    private final String[] PUBLIC_URLS = {
+            "/auth/login",
+            "/auth/logout",
+            "/auth/homeModel",
+            "/css/**",
+            "/js/**"
+    };
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
                 .csrf(csrf -> csrf.disable()) // CSRF ni o'chirish (faqat test uchun)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(
-                                "/auth/login", // auth ichidagi barcha api larni ruxsat berish
-                                "/homeModel",
-                                "/css/**",
-                                "/js/**"
-                        ).permitAll()
+                        .requestMatchers(PUBLIC_URLS).permitAll()
 
                         .anyRequest().authenticated() // barcha api larni autentifikatsiyadan otqazish kerak
                 );
