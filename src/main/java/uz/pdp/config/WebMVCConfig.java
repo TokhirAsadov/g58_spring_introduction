@@ -1,6 +1,5 @@
 package uz.pdp.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -53,9 +52,9 @@ public class WebMVCConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/css/*")
+        registry.addResourceHandler("/static/css/*")
                 .addResourceLocations("classpath:/static/css");
-        registry.addResourceHandler("/js/*")
+        registry.addResourceHandler("/static/js/*")
                 .addResourceLocations("classpath:/static/js");
     }
 }
