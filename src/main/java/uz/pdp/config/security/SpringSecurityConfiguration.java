@@ -93,3 +93,21 @@ public class SpringSecurityConfiguration {
         return new InMemoryUserDetailsManager(user, admin);
     }*/
 }
+
+/*
+   USER ROLE
+   1. create_user
+   2. update_profile
+   3. view_profile
+
+   MANAGER ROLE
+   1. see_all_users
+   2. block_user
+   3. generate_reports
+
+   ADMIN ROLE
+    1. block_user
+    2. delete_user
+    3. block_manager
+    4. delete_manager
+* */
