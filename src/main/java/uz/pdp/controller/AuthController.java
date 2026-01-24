@@ -45,7 +45,7 @@ public class AuthController {
         Integer id = authUserDao.save(AuthUser.builder()
                 .username(authUser.getUsername())
                 .password(passwordEncoder.encode(authUser.getPassword()))
-                .role("USER")
+//                .role("USER")
                 .build());
         System.out.println("Saved user id: " + id);
         return new ModelAndView("redirect:/auth/login");
