@@ -34,6 +34,7 @@ public class SpringSecurityConfiguration {
             "/auth/login",
             "/auth/logout",
             "/auth/homeModel",
+            "/home",
             "/css/**",
             "/js/**"
     };
