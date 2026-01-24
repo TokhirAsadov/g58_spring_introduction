@@ -45,7 +45,7 @@ public class AuthUserDao {
                             .id(rs.getInt("id"))
                             .username(rs.getString("username"))
                             .password(rs.getString("password"))
-                            .role(rs.getString("role"))
+//                            .role(rs.getString("role"))
                             .build()
             ));
         } catch (Exception e) {

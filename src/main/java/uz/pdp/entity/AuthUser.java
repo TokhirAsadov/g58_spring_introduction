@@ -2,6 +2,8 @@ package uz.pdp.entity;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,5 +14,5 @@ public class AuthUser {
     private Integer id;
     private String username;
     private String password;
-    private String role;
+    private List<AuthRole> roles;
 }

@@ -44,7 +44,7 @@ public class SpringSecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(PUBLIC_URLS).permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN") // faqat adminlarga ruxsat
-                        .requestMatchers("/user/**").hasAnyRole("USER","ADMIN") // faqat user lar uchun ruxsat
+                        .requestMatchers("/user/**").hasAnyRole("USER") // faqat user lar uchun ruxsat
                         .anyRequest().authenticated() // barcha api larni autentifikatsiyadan otqazish kerak
                 );
 
