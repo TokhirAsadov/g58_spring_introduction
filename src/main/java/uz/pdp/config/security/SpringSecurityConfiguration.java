@@ -2,6 +2,8 @@ package uz.pdp.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -16,6 +18,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+//@EnableGlobalMethodSecurity
+@EnableMethodSecurity(
+    prePostEnabled = true,
+    securedEnabled = true,
+    jsr250Enabled = true
+)
 public class SpringSecurityConfiguration {
 
     private final CustomUserDetailsService customUserDetailsService;
@@ -43,8 +51,8 @@ public class SpringSecurityConfiguration {
                 .userDetailsService(customUserDetailsService)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(PUBLIC_URLS).permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN") // faqat adminlarga ruxsat
-                        .requestMatchers("/user/**").hasAnyRole("USER") // faqat user lar uchun ruxsat
+//                        .requestMatchers("/admin/**").hasRole("ADMIN") // faqat adminlarga ruxsat
+//                        .requestMatchers("/user/**").hasAnyRole("USER") // faqat user lar uchun ruxsat
                         .anyRequest().authenticated() // barcha api larni autentifikatsiyadan otqazish kerak
                 );
 
