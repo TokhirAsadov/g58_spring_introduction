@@ -35,6 +35,7 @@ public class SpringSecurityConfiguration {
             "/auth/logout",
             "/auth/homeModel",
             "/home",
+            "/test",
             "/css/**",
             "/js/**"
     };
@@ -48,7 +49,7 @@ public class SpringSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                .csrf(csrf -> csrf.disable()) // CSRF ni o'chirish (faqat test uchun)
+                //.csrf(csrf -> csrf.disable()) // CSRF ni o'chirish (faqat test uchun)
                 .userDetailsService(customUserDetailsService)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(PUBLIC_URLS).permitAll()
