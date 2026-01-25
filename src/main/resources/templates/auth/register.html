@@ -37,6 +37,7 @@
                     </div>-->
 
                     <form method="post" class="needs-validation" novalidate action="/auth/register">
+                        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
                         <!-- Username -->
                         <div class="mb-4">
                             <label for="username" class="form-label fw-semibold">Username</label>

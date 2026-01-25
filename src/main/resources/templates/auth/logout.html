@@ -11,6 +11,7 @@
     <h1 class="center">Logout Page</h1>
 
     <form class="center" method="post">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
         <h4>Are you sure log out?</h4>
         <button type="submit" class="btn btn-danger">Logout</button>
     </form>

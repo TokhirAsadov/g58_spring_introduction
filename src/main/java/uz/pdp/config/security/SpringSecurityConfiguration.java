@@ -33,6 +33,7 @@ public class SpringSecurityConfiguration {
             "/auth/register",
             "/auth/login",
             "/auth/logout",
+            "/auth/userinfo",
             "/auth/homeModel",
             "/home",
             "/test",
