@@ -1,6 +1,7 @@
 package uz.pdp.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,19 +10,25 @@ import org.springframework.web.servlet.ModelAndView;
 import uz.pdp.dto.Book;
 import uz.pdp.exceptions.BookNotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Controller
 @RequestMapping("/books")
 public class BookController {
     private final MessageSource messageSource;
-    private final List<Book> books = List.of(
-            new Book(1, "1984", "George Orwell"),
-            new Book(2, "To Kill a Mockingbird", "Harper Lee"),
-            new Book(3, "The Great Gatsby", "F. Scott Fitzgerald")
-    );
+
+    private final AtomicInteger bookId = new AtomicInteger(1);
+    private final List<Book> books = new ArrayList<>(){
+        {
+            add(new Book(bookId.getAndIncrement(), "1984", "George Orwell"));
+            add(new Book(bookId.getAndIncrement(), "To Kill a Mockingbird", "Harper Lee"));
+            add(new Book(bookId.getAndIncrement(), "The Great Gatsby", "F. Scott Fitzgerald"));
+        }
+    };
 
     public BookController(MessageSource messageSource) {
         this.messageSource = messageSource;
@@ -52,6 +59,23 @@ public class BookController {
         return "book-detail";
     }
 
+    @GetMapping("/create")
+    public String createBookForm(Model model) {
+        model.addAttribute("book", new Book());
+        return "book-create";
+    }
+
+    @PostMapping("/create")
+    public String createBookSubmit(@Valid @ModelAttribute Book book, Model model) {
+        Book newBook = Book.builder()
+                .id(bookId.getAndIncrement())
+                .title(book.getTitle())
+                .author(book.getAuthor())
+                .build();
+        books.add(newBook);
+        model.addAttribute("books", book);
+        return "books";
+    }
    /* @ExceptionHandler({BookNotFoundException.class})
     public ModelAndView error_404(HttpServletRequest request, BookNotFoundException ex) {
         ModelAndView modelAndView = new ModelAndView("error/404");
