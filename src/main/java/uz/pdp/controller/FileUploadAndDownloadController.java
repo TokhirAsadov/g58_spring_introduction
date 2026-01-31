@@ -92,7 +92,7 @@ public class FileUploadAndDownloadController {
     // 1.2 @RequestMapping @GetMapping @PostMapping @PutMapping @DeleteMapping @ResponseBody
     // 1.3 @PathVariable @RequestParam @ModelAttribute
     // @Autowired
-    // @Qualified
+    // @Qualifier
     // @Inject
     // @Named
 
