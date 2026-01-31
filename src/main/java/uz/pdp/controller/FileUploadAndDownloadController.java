@@ -1,5 +1,6 @@
 package uz.pdp.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
 @Controller
+@RequestMapping("/file")
 public class FileUploadAndDownloadController {
 
     private final Path rootPath = Path.of("D:/pdp/G58/Spring/spring/spring_introduction/uploads");
@@ -84,5 +86,14 @@ public class FileUploadAndDownloadController {
     ) {
         return "Book id: " + id;
     }*/
+    // @Bean
+    // @Component
+    // 1.1 @Controller
+    // 1.2 @RequestMapping @GetMapping @PostMapping @PutMapping @DeleteMapping @ResponseBody
+    // 1.3 @PathVariable @RequestParam @ModelAttribute
+    // @Autowired
+    // @Qualified
+    // @Inject
+    // @Named
 
 }
